@@ -18,6 +18,8 @@
     "mercurius": "^8.1.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "@types/node": "^16.7.10",
     "@typescript-eslint/eslint-plugin": "^4.30.0",
     "@typescript-eslint/parser": "^4.30.0",
