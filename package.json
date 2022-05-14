@@ -9,7 +9,7 @@
     "build": "tsc",
     "dev": "ts-node-dev -r dotenv/config --no-notify --respawn --transpile-only src/index.ts",
     "start": "node build/index.js",
-    "lint": "eslint --ext .ts src",
+    "lint": "eslint --ext .ts src --ignore-path .gitignore",
     "lint:fix": "yarn lint --fix",
     "nexus:reflect": "NEXUS_SHOULD_EXIT_AFTER_REFLECTION=true ts-node --transpile-only src/graphql/index.ts",
     "test": "NODE_ENV=test jest --runInBand"
