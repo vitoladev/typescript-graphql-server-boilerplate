@@ -5,4 +5,10 @@ export const executeGraphQL = (
   query: string,
   variables = {},
   ctx = {},
-): Promise<ExecutionResult> => graphql(schema, query, {}, ctx, variables);
+): Promise<ExecutionResult> =>
+  graphql({
+    schema,
+    source: query,
+    contextValue: ctx,
+    variableValues: variables,
+  });

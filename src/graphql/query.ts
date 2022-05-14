@@ -1,13 +1,10 @@
-import { GraphQLObjectType, GraphQLString } from 'graphql';
+import { queryField } from 'nexus';
 
-const query = new GraphQLObjectType({
-  name: 'Query',
-  fields: () => ({
-    hello: {
-      type: GraphQLString,
-      resolve: () => 'world',
-    },
-  }),
+const helloWorldQuery = queryField((t) => {
+  t.field('hello', {
+    type: 'String',
+    resolve: () => 'world',
+  });
 });
 
-export default query;
+export const Query = [helloWorldQuery];
