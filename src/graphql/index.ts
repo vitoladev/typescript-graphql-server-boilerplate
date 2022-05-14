@@ -1,5 +1,5 @@
 import { makeSchema } from 'nexus';
-import { join } from 'node:path';
+import { join } from 'path';
 import { Query } from './query';
 
 const schema = makeSchema({
