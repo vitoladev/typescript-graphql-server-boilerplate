@@ -1,4 +1,6 @@
 import fastify from 'fastify';
+import fastifyHelmet from '@fastify/helmet';
+import fastifyCors from '@fastify/cors';
 import mercurius from 'mercurius';
 import schema from './graphql';
 import buildContext from './graphql/context';
@@ -8,6 +10,11 @@ const app = fastify({ logger: true });
 app.register(mercurius, {
   schema,
   context: buildContext,
+});
+
+app.register(fastifyHelmet);
+app.register(fastifyCors, {
+  origin: '*',
 });
 
 const start = async () => {
