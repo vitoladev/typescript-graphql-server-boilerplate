@@ -4,6 +4,7 @@ import fastifyCors from '@fastify/cors';
 import mercurius from 'mercurius';
 import schema from './graphql';
 import buildContext from './graphql/context';
+import { NoSchemaIntrospectionCustomRule } from 'graphql';
 
 const app = fastify({ logger: true });
 
@@ -11,6 +12,10 @@ app.register(mercurius, {
   schema,
   context: buildContext,
   queryDepth: 4,
+  validationRules:
+    process.env.NODE_ENV === 'production'
+      ? [NoSchemaIntrospectionCustomRule]
+      : undefined,
 });
 
 app.register(fastifyHelmet);
