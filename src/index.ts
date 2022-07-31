@@ -10,6 +10,7 @@ const app = fastify({ logger: true });
 app.register(mercurius, {
   schema,
   context: buildContext,
+  queryDepth: 4,
 });
 
 app.register(fastifyHelmet);
