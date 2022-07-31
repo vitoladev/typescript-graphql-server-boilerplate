@@ -2,4 +2,4 @@ build
 node_modules
 tsconfig.tsbuildinfo
 .idea
-generated/
+**/generated
